@@ -12,7 +12,7 @@ drop: 0.2
 model_ema: true
 model_ema_decay: 0.997
 lr: 0.08
-batch_size: 64
+batch_size: 1
 optimizer_step: 1 # step optimizer every * training steps to simulate large batch
 drop-path: 0.0
 aa: rand-m9-mstd0.5
