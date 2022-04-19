@@ -45,10 +45,14 @@ class DSStage(nn.Module):
 
     def forward(self, x):
         self.set_gate()
+        print("before first block")
         x = self.first_block(x)
+        print("after first block")
+
         self.channel_choice = self.first_block.get_gate()
         self.set_gate()
         if self.mode == 'dynamic':
+            print("dynamic")
             x = self.residual_blocks(x)
         else:
             for idx in range(self.layer_num - 1):
