@@ -309,15 +309,15 @@ class MultiHeadGate(nn.Module):
             nn.init.zeros_(self.conv_expand.bias)
 
     def forward(self, x):
-        print("in MultiHeadGate", x.shape)
+        print("in MultiHeadGate", "x.shape", x.shape)
         x_pool = self.avg_pool(x)
-        print("in MultiHeadGate", x_pool.shape)
+        print("in MultiHeadGate", "x_pool.shape", x_pool.shape)
         x_reduced = self.conv_reduce(x_pool)
-        print("in MultiHeadGate", x_reduced.shape)
+        print("in MultiHeadGate", "x_reduced.shape", x_reduced.shape)
         x_reduced = self.act1(x_reduced)
-        print("in MultiHeadGate", x_reduced.shape)
+        print("in MultiHeadGate", "x_reduced.shape", x_reduced.shape)
         attn = self.conv_expand(x_reduced)
-        print("in MultiHeadGate", attn.shape)
+        print("in MultiHeadGate", "attn.shape", attn.shape)
         if self.attn_act_fn == 'tanh':
             attn = (1 + attn.tanh())
         else:
