@@ -233,7 +233,9 @@ class DSDepthwiseSeparable(nn.Module):
         x = self.act1(x)
 
         # Channel attention and gating
+        print("Before Gating")
         x = self.gate(x)
+        print("After Gating")
         if self.has_gate:
             self.prev_channel_choice = self.channel_choice
             self.channel_choice = self._new_gate()
