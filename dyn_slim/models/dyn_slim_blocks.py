@@ -98,6 +98,7 @@ class DSInvertedResidual(nn.Module):
         return self.last_feature
 
     def forward(self, x):
+        print("WE ARE DSInvertedResidual")
         self._set_gate()
 
         residual = x
@@ -222,6 +223,7 @@ class DSDepthwiseSeparable(nn.Module):
                 self.bn2.set_zero_weight()
 
     def forward(self, x):
+        print("WE ARE DSDepthwiseSeparable")
         self._set_gate()
         residual = x
 
